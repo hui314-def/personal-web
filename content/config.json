@@ -1,0 +1,8 @@
+{
+    "site_name": "陈俊辉 | 个人成长站",
+    "author": "陈俊辉",
+    "description": "AI专业学生 | Python开发者 | 持续成长中",
+    "admin_password": "admin123",
+    "posts_per_page": 10,
+    "base_path": ""
+}

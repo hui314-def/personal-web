@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到我的个人成长站！ | 陈俊辉 | 个人成长站</title>
+    <meta name="description" content="AI专业学生 | Python开发者 | 持续成长中">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
+                        accent: { 50:'#fdf4ff',100:'#fae8ff',200:'#f5d0fe',300:'#f0abfc',400:'#e879f9',500:'#d946ef',600:'#c026d3',700:'#a21caf',800:'#86198f',900:'#701a75' },
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2 font-bold text-xl text-primary-600 dark:text-primary-400">
+                    <i class="fas fa-seedling"></i>
+                    <span>俊辉·成长</span>
+                </a>
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    
+                    
+                    <a href="/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-home mr-1"></i>首页
+                    </a>
+                    
+                    <a href="/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-user mr-1"></i>关于
+                    </a>
+                    
+                    <a href="/projects" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-code mr-1"></i>项目
+                    </a>
+                    
+                    <a href="/updates" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-newspaper mr-1"></i>动态
+                    </a>
+                    
+                    <a href="/growth" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-chart-line mr-1"></i>成长
+                    </a>
+                    
+                    <a href="/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-envelope mr-1"></i>联系
+                    </a>
+                    
+                    <a href="/admin" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="管理后台">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
+                <!-- 暗色模式切换 -->
+                <button id="darkToggle" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" title="切换暗色模式">
+                    <i class="fas fa-moon dark-icon"></i>
+                    <i class="fas fa-sun light-icon hidden"></i>
+                </button>
+                <!-- 移动端菜单按钮 -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div class="px-4 py-2 space-y-1">
+                
+                <a href="/" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-home mr-2 w-4"></i>首页
+                </a>
+                
+                <a href="/about" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-user mr-2 w-4"></i>关于
+                </a>
+                
+                <a href="/projects" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-code mr-2 w-4"></i>项目
+                </a>
+                
+                <a href="/updates" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-newspaper mr-2 w-4"></i>动态
+                </a>
+                
+                <a href="/growth" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-chart-line mr-2 w-4"></i>成长
+                </a>
+                
+                <a href="/contact" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-envelope mr-2 w-4"></i>联系
+                </a>
+                
+                <a href="/admin" class="block px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    <i class="fas fa-cog mr-2 w-4"></i>管理
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="flex-1">
+        
+<article class="py-16 bg-white dark:bg-gray-800 min-h-[70vh]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <!-- 文章头部 -->
+        <header class="mb-10">
+            <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-3">
+                <a href="/updates" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-1"></i>返回动态
+                </a>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                欢迎来到我的个人成长站！
+            </h1>
+            <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+                <span class="flex items-center">
+                    <i class="far fa-calendar mr-1.5"></i>2026-06-21
+                </span>
+                
+                <span class="flex items-center gap-1.5">
+                    <i class="fas fa-tags mr-1"></i>
+                    
+                    <a href="/updates?tag=成长" class="tag-badge hover:bg-primary-200 dark:hover:bg-primary-800">成长</a>
+                    
+                    <a href="/updates?tag=网站" class="tag-badge hover:bg-primary-200 dark:hover:bg-primary-800">网站</a>
+                    
+                </span>
+                
+            </div>
+        </header>
+
+        <!-- 文章内容 -->
+        <div class="post-content prose max-w-none">
+            <h2>关于这个网站</h2>
+<p>大家好！我是陈俊辉，广州大学人工智能专业2024级学生。这是我的个人成长网站，用于记录我的学习历程、项目开发和成长轨迹。</p>
+<h2>为什么要建这个网站？</h2>
+<p>作为一名AI专业的学生和编程爱好者，我希望有一个属于自己的空间来：</p>
+<ul>
+<li><strong>记录成长</strong>：把学习过程中的收获和思考记录下来</li>
+<li><strong>展示项目</strong>：集中展示我开发的各种项目</li>
+<li><strong>分享知识</strong>：通过博客文章分享AI和编程相关的知识</li>
+<li><strong>激励自己</strong>：看到自己的成长轨迹，不断激励自己前进</li>
+</ul>
+<h2>我的技术栈</h2>
+<p>在日常开发和研究中，我主要使用以下技术：</p>
+<pre><code class="language-python"># 我最熟悉的语言
+print("Hello, I'm a Python developer!")
+<h1>熟悉的AI框架</h1>
+import torch
+import torch.nn as nn
+</code></pre>
+<ul>
+<li><strong>编程语言</strong>: Python > JavaScript > C++ > Java</li>
+<li><strong>AI框架</strong>: PyTorch, ComfyUI, Ollama</li>
+<li><strong>工具</strong>: Claude Code, OpenClaw, Git</li>
+<li><strong>兴趣方向</strong>: AI Agent, RAG, MCP, 模型微调</li>
+</ul>
+<h2>未来计划</h2>
+<li>深入学习和搭建AI Agent多智能体系统</li>
+<li>构建个人RAG知识库</li>
+<li>开发MCP服务器扩展AI能力</li>
+<li>尝试模型微调</li>
+<li>创建属于自己的AI助手</li>
+<blockquote>"成长不是一蹴而就的飞跃，而是每一天持续积累的微小进步。"</blockquote>
+<p>欢迎大家经常来看看我的最新动态！</p>
+        </div>
+
+        <!-- 文章底部 -->
+        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <div class="flex items-center justify-between">
+                <a href="/updates" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center gap-1">
+                    <i class="fas fa-arrow-left"></i> 返回动态列表
+                </a>
+                <a href="/admin" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm" title="发布新文章">
+                    <i class="fas fa-pen mr-1"></i>写新文章
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                    &copy; 2026 陈俊辉 · 用 ❤️ 和 AI 打造
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/hui314-def" target="_blank" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="GitHub">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="/contact" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="联系方式">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="/updates" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="最新动态">
+                        <i class="fas fa-rss text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}关于我 | {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            <i class="fas fa-user text-primary-500 mr-2"></i>关于我
+        </h1>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-12">一个热爱AI和编程的大学生</p>
+
+        <!-- 基本信息 -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-8">
+                <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+                    <i class="fas fa-id-card text-primary-500 mr-2"></i>基本信息
+                </h2>
+                <div class="space-y-3">
+                    {% set fields = [
+                        ('姓名', profile.name),
+                        ('英文名', profile.name_en),
+                        ('性别', profile.gender),
+                        ('学校', profile.school),
+                        ('专业', profile.major),
+                        ('年级', profile.grade),
+                        ('定位', profile.role),
+                    ] %}
+                    {% for label, value in fields %}
+                    <div class="flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-600">
+                        <span class="text-gray-500 dark:text-gray-400">{{ label }}</span>
+                        <span class="font-medium text-gray-900 dark:text-white">{{ value }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-8">
+                <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+                    <i class="fas fa-heart text-accent-500 mr-2"></i>兴趣爱好
+                </h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-4 text-center">
+                        <span class="text-3xl">🎮</span>
+                        <p class="mt-2 font-medium text-gray-900 dark:text-white">原神</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-4 text-center">
+                        <span class="text-3xl">🚂</span>
+                        <p class="mt-2 font-medium text-gray-900 dark:text-white">崩坏星穹铁道</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-4 text-center">
+                        <span class="text-3xl">🌌</span>
+                        <p class="mt-2 font-medium text-gray-900 dark:text-white">异环</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-4 text-center">
+                        <span class="text-3xl">💻</span>
+                        <p class="mt-2 font-medium text-gray-900 dark:text-white">编程开发</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 编程语言技能 -->
+        <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white text-center">
+            <i class="fas fa-code text-primary-500 mr-2"></i>编程语言
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4 mb-12 max-w-3xl mx-auto">
+            {% for lang in skills.programming_languages %}
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="font-semibold text-gray-900 dark:text-white">{{ lang.name }}</span>
+                    <span class="text-sm text-primary-600 dark:text-primary-400 font-bold">{{ lang.level }}%</span>
+                </div>
+                <div class="bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                    <div class="skill-bar bg-gradient-to-r from-primary-500 to-accent-500 h-2.5 rounded-full" data-width="{{ lang.level }}"></div>
+                </div>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">{{ lang.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- AI/ML技能 -->
+        <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white text-center">
+            <i class="fas fa-brain text-accent-500 mr-2"></i>AI / 机器学习
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4 mb-12 max-w-3xl mx-auto">
+            {% for item in skills.ai_ml %}
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="font-semibold text-gray-900 dark:text-white">{{ item.name }}</span>
+                    <span class="text-sm text-accent-600 dark:text-accent-400 font-bold">{{ item.level }}%</span>
+                </div>
+                <div class="bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                    <div class="skill-bar bg-gradient-to-r from-accent-500 to-primary-500 h-2.5 rounded-full" data-width="{{ item.level }}"></div>
+                </div>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">{{ item.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- 工具技能 -->
+        <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white text-center">
+            <i class="fas fa-tools text-green-500 mr-2"></i>工具 & 其他
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {% for item in skills.tools %}
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="font-semibold text-gray-900 dark:text-white">{{ item.name }}</span>
+                    <span class="text-sm text-green-600 dark:text-green-400 font-bold">{{ item.level }}%</span>
+                </div>
+                <div class="bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                    <div class="skill-bar bg-gradient-to-r from-green-400 to-emerald-500 h-2.5 rounded-full" data-width="{{ item.level }}"></div>
+                </div>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">{{ item.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,95 @@
+{
+    "past": [
+        {
+            "date": "2024-09",
+            "title": "进入广州大学",
+            "description": "考入广州大学人工智能专业，开启了AI学习之旅",
+            "icon": "🎓"
+        },
+        {
+            "date": "2024-10",
+            "title": "开始Python系统学习",
+            "description": "深入学习Python编程，从基础语法到高级应用",
+            "icon": "🐍"
+        },
+        {
+            "date": "2024-12",
+            "title": "完成第一个工具项目",
+            "description": "开发了文件操作工具集，初尝编程实践的乐趣",
+            "icon": "🛠️"
+        },
+        {
+            "date": "2025-03",
+            "title": "学习机器学习基础",
+            "description": "开始系统学习机器学习和深度学习理论",
+            "icon": "🧠"
+        },
+        {
+            "date": "2025-06",
+            "title": "搭建PyTorch模型",
+            "description": "使用PyTorch框架搭建了第一个图片分类模型",
+            "icon": "🔥"
+        },
+        {
+            "date": "2025-09",
+            "title": "项目开发加速",
+            "description": "先后开发了桌面宠物、AI聊天网页、远程键鼠控制器等项目",
+            "icon": "🚀"
+        },
+        {
+            "date": "2026-01",
+            "title": "AI Agent探索",
+            "description": "深入研究AI Agent技术，搭建多智能体协同系统，部署Claude Code",
+            "icon": "🤖"
+        }
+    ],
+    "current": [
+        {
+            "title": "完善已有项目",
+            "description": "对已开发的项目进行功能完善和优化",
+            "icon": "📝"
+        },
+        {
+            "title": "深度学习研究",
+            "description": "持续跟进前沿论文，深化AI理论知识",
+            "icon": "📚"
+        }
+    ],
+    "future": [
+        {
+            "title": "AI Agent搭建",
+            "description": "深入研究多智能体协同架构，构建更复杂的AI Agent系统",
+            "icon": "🤖"
+        },
+        {
+            "title": "RAG知识库",
+            "description": "构建检索增强生成知识库，提升AI应用的准确性",
+            "icon": "📖"
+        },
+        {
+            "title": "MCP服务器开发",
+            "description": "编写Model Context Protocol服务器，扩展AI工具连接能力",
+            "icon": "🔌"
+        },
+        {
+            "title": "Skill文件编写",
+            "description": "为AI编程助手编写自定义技能文件",
+            "icon": "⚡"
+        },
+        {
+            "title": "模型微调",
+            "description": "学习和实践大语言模型的微调技术",
+            "icon": "🎯"
+        },
+        {
+            "title": "创建个人AI助手",
+            "description": "整合所有技能，打造属于自己的专属AI助手",
+            "icon": "🌟"
+        },
+        {
+            "title": "高性能电脑",
+            "description": "拥有一台高性能电脑，畅玩游戏并运行大参数模型",
+            "icon": "💻"
+        }
+    ]
+}

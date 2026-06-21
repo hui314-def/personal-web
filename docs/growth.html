@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成长轨迹 | 陈俊辉 | 个人成长站</title>
+    <meta name="description" content="AI专业学生 | Python开发者 | 持续成长中">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
+                        accent: { 50:'#fdf4ff',100:'#fae8ff',200:'#f5d0fe',300:'#f0abfc',400:'#e879f9',500:'#d946ef',600:'#c026d3',700:'#a21caf',800:'#86198f',900:'#701a75' },
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2 font-bold text-xl text-primary-600 dark:text-primary-400">
+                    <i class="fas fa-seedling"></i>
+                    <span>俊辉·成长</span>
+                </a>
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    
+                    
+                    <a href="/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-home mr-1"></i>首页
+                    </a>
+                    
+                    <a href="/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-user mr-1"></i>关于
+                    </a>
+                    
+                    <a href="/projects" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-code mr-1"></i>项目
+                    </a>
+                    
+                    <a href="/updates" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-newspaper mr-1"></i>动态
+                    </a>
+                    
+                    <a href="/growth" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300">
+                        <i class="fas fa-chart-line mr-1"></i>成长
+                    </a>
+                    
+                    <a href="/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-envelope mr-1"></i>联系
+                    </a>
+                    
+                    <a href="/admin" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="管理后台">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
+                <!-- 暗色模式切换 -->
+                <button id="darkToggle" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" title="切换暗色模式">
+                    <i class="fas fa-moon dark-icon"></i>
+                    <i class="fas fa-sun light-icon hidden"></i>
+                </button>
+                <!-- 移动端菜单按钮 -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div class="px-4 py-2 space-y-1">
+                
+                <a href="/" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-home mr-2 w-4"></i>首页
+                </a>
+                
+                <a href="/about" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-user mr-2 w-4"></i>关于
+                </a>
+                
+                <a href="/projects" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-code mr-2 w-4"></i>项目
+                </a>
+                
+                <a href="/updates" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-newspaper mr-2 w-4"></i>动态
+                </a>
+                
+                <a href="/growth" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300">
+                    <i class="fas fa-chart-line mr-2 w-4"></i>成长
+                </a>
+                
+                <a href="/contact" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-envelope mr-2 w-4"></i>联系
+                </a>
+                
+                <a href="/admin" class="block px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    <i class="fas fa-cog mr-2 w-4"></i>管理
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="flex-1">
+        
+<section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            <i class="fas fa-chart-line text-green-500 mr-2"></i>成长轨迹
+        </h1>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-12">每一步都是成长的印记</p>
+
+        <!-- 过去里程碑 -->
+        <h2 class="text-xl font-bold mb-8 text-gray-900 dark:text-white flex items-center">
+            <span class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400 mr-3">
+                <i class="fas fa-check"></i>
+            </span>已完成
+        </h2>
+        <div class="relative pl-8 border-l-2 border-green-300 dark:border-green-700 ml-4 space-y-8 mb-16">
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-green-400 flex items-center justify-center text-xs">
+                    🎓
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">2024-09</span>
+                    <h3 class="font-bold text-gray-900 dark:text-white mt-1">进入广州大学</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">考入广州大学人工智能专业，开启了AI学习之旅</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-green-400 flex items-center justify-center text-xs">
+                    🐍
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">2024-10</span>
+                    <h3 class="font-bold text-gray-900 dark:text-white mt-1">开始Python系统学习</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">深入学习Python编程，从基础语法到高级应用</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-green-400 flex items-center justify-center text-xs">
+                    🛠️
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">2024-12</span>
+                    <h3 class="font-bold text-gray-900 dark:text-white mt-1">完成第一个工具项目</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">开发了文件操作工具集，初尝编程实践的乐趣</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-green-400 flex items-center justify-center text-xs">
+                    🧠
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">2025-03</span>
+                    <h3 class="font-bold text-gray-900 dark:text-white mt-1">学习机器学习基础</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">开始系统学习机器学习和深度学习理论</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-green-400 flex items-center justify-center text-xs">
+                    🔥
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">2025-06</span>
+                    <h3 class="font-bold text-gray-900 dark:text-white mt-1">搭建PyTorch模型</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">使用PyTorch框架搭建了第一个图片分类模型</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-green-400 flex items-center justify-center text-xs">
+                    🚀
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">2025-09</span>
+                    <h3 class="font-bold text-gray-900 dark:text-white mt-1">项目开发加速</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">先后开发了桌面宠物、AI聊天网页、远程键鼠控制器等项目</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-green-400 flex items-center justify-center text-xs">
+                    🤖
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">2026-01</span>
+                    <h3 class="font-bold text-gray-900 dark:text-white mt-1">AI Agent探索</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">深入研究AI Agent技术，搭建多智能体协同系统，部署Claude Code</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 进行中 -->
+        <h2 class="text-xl font-bold mb-8 text-gray-900 dark:text-white flex items-center">
+            <span class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400 mr-3">
+                <i class="fas fa-spinner fa-pulse"></i>
+            </span>进行中
+        </h2>
+        <div class="relative pl-8 border-l-2 border-blue-300 dark:border-blue-700 ml-4 space-y-6 mb-16">
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-blue-400 flex items-center justify-center text-xs">
+                    📝
+                </div>
+                <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-5 border border-blue-200 dark:border-blue-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">完善已有项目</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">对已开发的项目进行功能完善和优化</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-blue-400 flex items-center justify-center text-xs">
+                    📚
+                </div>
+                <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-5 border border-blue-200 dark:border-blue-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">深度学习研究</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">持续跟进前沿论文，深化AI理论知识</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 未来规划 -->
+        <h2 class="text-xl font-bold mb-8 text-gray-900 dark:text-white flex items-center">
+            <span class="w-8 h-8 rounded-full bg-accent-100 dark:bg-accent-900 flex items-center justify-center text-accent-600 dark:text-accent-400 mr-3">
+                <i class="fas fa-rocket"></i>
+            </span>未来规划
+        </h2>
+        <div class="relative pl-8 border-l-2 border-dashed border-accent-300 dark:border-accent-700 ml-4 space-y-6">
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-accent-400 flex items-center justify-center text-xs">
+                    🤖
+                </div>
+                <div class="bg-accent-50 dark:bg-accent-900/10 rounded-xl p-5 border border-accent-200 dark:border-accent-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">AI Agent搭建</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">深入研究多智能体协同架构，构建更复杂的AI Agent系统</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-accent-400 flex items-center justify-center text-xs">
+                    📖
+                </div>
+                <div class="bg-accent-50 dark:bg-accent-900/10 rounded-xl p-5 border border-accent-200 dark:border-accent-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">RAG知识库</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">构建检索增强生成知识库，提升AI应用的准确性</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-accent-400 flex items-center justify-center text-xs">
+                    🔌
+                </div>
+                <div class="bg-accent-50 dark:bg-accent-900/10 rounded-xl p-5 border border-accent-200 dark:border-accent-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">MCP服务器开发</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">编写Model Context Protocol服务器，扩展AI工具连接能力</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-accent-400 flex items-center justify-center text-xs">
+                    ⚡
+                </div>
+                <div class="bg-accent-50 dark:bg-accent-900/10 rounded-xl p-5 border border-accent-200 dark:border-accent-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">Skill文件编写</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">为AI编程助手编写自定义技能文件</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-accent-400 flex items-center justify-center text-xs">
+                    🎯
+                </div>
+                <div class="bg-accent-50 dark:bg-accent-900/10 rounded-xl p-5 border border-accent-200 dark:border-accent-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">模型微调</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">学习和实践大语言模型的微调技术</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-accent-400 flex items-center justify-center text-xs">
+                    🌟
+                </div>
+                <div class="bg-accent-50 dark:bg-accent-900/10 rounded-xl p-5 border border-accent-200 dark:border-accent-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">创建个人AI助手</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">整合所有技能，打造属于自己的专属AI助手</p>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-accent-400 flex items-center justify-center text-xs">
+                    💻
+                </div>
+                <div class="bg-accent-50 dark:bg-accent-900/10 rounded-xl p-5 border border-accent-200 dark:border-accent-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">高性能电脑</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">拥有一台高性能电脑，畅玩游戏并运行大参数模型</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 理想 -->
+        <div class="mt-16 text-center bg-gradient-to-r from-primary-50 to-accent-50 dark:from-gray-700/50 dark:to-gray-700/50 rounded-2xl p-8 border border-gray-200 dark:border-gray-600">
+            <span class="text-5xl">💻</span>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-4 mb-2">我的理想</h3>
+            <p class="text-gray-600 dark:text-gray-300">拥有一台高性能电脑，既能畅快打游戏，也能运行大参数模型进行AI创作</p>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                    &copy; 2026 陈俊辉 · 用 ❤️ 和 AI 打造
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/hui314-def" target="_blank" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="GitHub">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="/contact" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="联系方式">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="/updates" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="最新动态">
+                        <i class="fas fa-rss text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

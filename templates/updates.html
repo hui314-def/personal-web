@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}最新动态 | {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="py-16 bg-white dark:bg-gray-800 min-h-[70vh]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            <i class="fas fa-newspaper text-accent-500 mr-2"></i>最新动态
+        </h1>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-8">记录我的学习、开发和成长历程</p>
+
+        <!-- 标签筛选（纯前端JS实现） -->
+        {% if all_tags %}
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="tagFilters">
+            <button onclick="filterPosts('all')" class="tag-badge bg-primary-600 text-white px-3 py-1.5 text-sm cursor-pointer filter-btn" data-tag="all">全部</button>
+            {% for t in all_tags %}
+            <button onclick="filterPosts('{{ t }}')" class="tag-badge px-3 py-1.5 text-sm cursor-pointer filter-btn" data-tag="{{ t }}">{{ t }}</button>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- 文章列表 -->
+        {% if posts %}
+        <div class="space-y-5" id="postsList">
+            {% for post in posts %}
+            <a href="{{ base_path }}/updates/{{ post.slug }}" class="post-item block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-600 group" data-tags="{{ post.tags | join(',') }}">
+                <div class="flex items-start justify-between gap-4">
+                    <div class="flex-1">
+                        <h2 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                            {{ post.title }}
+                        </h2>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 line-clamp-2">{{ post.summary }}</p>
+                    </div>
+                    <span class="text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap bg-white dark:bg-gray-800 px-2.5 py-1 rounded-full">{{ post.date }}</span>
+                </div>
+                {% if post.tags %}
+                <div class="flex flex-wrap gap-1.5 mt-3">
+                    {% for t in post.tags %}
+                    <span class="tag-badge">{{ t }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        <div class="text-center py-16 text-gray-400 dark:text-gray-500">
+            <i class="fas fa-inbox text-6xl mb-4"></i>
+            <p class="text-lg">还没有任何动态</p>
+            <p class="text-sm mt-2">访问 <a href="{{ base_path }}/admin" class="text-primary-500 hover:underline">管理后台</a> 发布第一条消息吧！</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

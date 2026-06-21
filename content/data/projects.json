@@ -1,0 +1,117 @@
+{
+    "featured": [
+        {
+            "name": "桌面宠物",
+            "description": "一款桌面宠物应用，提供陪伴和娱乐功能，运行在桌面端的交互式宠物程序。",
+            "tech": [
+                "Python",
+                "GUI",
+                "动画"
+            ],
+            "github": "https://github.com/hui314-def/PyQt5DeskPet",
+            "category": "应用"
+        },
+        {
+            "name": "AI聊天网页",
+            "description": "基于AI模型的在线聊天网页应用，支持多轮对话和上下文理解。",
+            "tech": [
+                "Python",
+                "JavaScript",
+                "AI API",
+                "Web"
+            ],
+            "github": "https://github.com/hui314-def/My-Virtual-AI-Chat-Page",
+            "category": "Web应用"
+        },
+        {
+            "name": "远程键鼠控制器",
+            "description": "通过网络远程控制电脑键盘和鼠标的工具，实现跨设备操作。",
+            "tech": [
+                "Python",
+                "网络编程",
+                "Socket"
+            ],
+            "github": "https://github.com/hui314-def/computercontroller",
+            "category": "工具"
+        }
+    ],
+    "tools": [
+        {
+            "name": "文件操作工具集",
+            "description": "系统文件批量操作工具，包括重命名、分类、搜索等功能。",
+            "tech": [
+                "Python",
+                "OS"
+            ],
+            "github": "https://github.com/hui314-def/useful-tools",
+            "category": "工具"
+        },
+        {
+            "name": "图片/音视频处理工具",
+            "description": "批量处理图片和音视频文件，包括格式转换、压缩、编辑等。",
+            "tech": [
+                "Python",
+                "PIL",
+                "FFmpeg"
+            ],
+            "github": "https://github.com/hui314-def/useful-tools",
+            "category": "工具"
+        },
+        {
+            "name": "网络爬虫工具集",
+            "description": "多类型网站数据采集爬虫，支持动态页面和反爬处理。",
+            "tech": [
+                "Python",
+                "Scrapy",
+                "Selenium"
+            ],
+            "github": "https://github.com/hui314-def/useful-tools",
+            "category": "工具"
+        },
+        {
+            "name": "脚本处理工具",
+            "description": "自动化脚本集合，用于日常重复性任务的自动化处理。",
+            "tech": [
+                "Python",
+                "Shell"
+            ],
+            "github": "https://github.com/hui314-def/useful-tools",
+            "category": "工具"
+        }
+    ],
+    "ml_projects": [
+        {
+            "name": "图片分类模型",
+            "description": "使用PyTorch搭建的深度学习图片分类模型。",
+            "tech": [
+                "PyTorch",
+                "CNN",
+                "Python"
+            ],
+            "github": "https://github.com/hui314-def",
+            "category": "机器学习"
+        },
+        {
+            "name": "回归预测模型",
+            "description": "基于深度学习的回归预测模型，用于数值预测任务。",
+            "tech": [
+                "PyTorch",
+                "Regression",
+                "Python"
+            ],
+            "github": "https://github.com/hui314-def",
+            "category": "机器学习"
+        },
+        {
+            "name": "图片生成模型",
+            "description": "基于生成对抗网络和扩散模型的图片生成实验。",
+            "tech": [
+                "PyTorch",
+                "GAN",
+                "Diffusion"
+            ],
+            "github": "https://github.com/hui314-def",
+            "category": "机器学习"
+        }
+    ]
+}

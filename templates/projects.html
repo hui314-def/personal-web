@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}项目展示 | {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            <i class="fas fa-code text-primary-500 mr-2"></i>项目展示
+        </h1>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-12">我开发的一些有趣项目</p>
+
+        <!-- 精选项目 -->
+        <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+            <i class="fas fa-star text-yellow-500 mr-2"></i>精选项目
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+            {% for proj in projects_data.featured %}
+            <a href="{{ proj.github }}" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-600">
+                <div class="p-6">
+                    <div class="text-3xl mb-3">
+                        {% if '宠物' in proj.name %}🐱{% elif '聊天' in proj.name %}💬{% elif '键鼠' in proj.name %}🖱️{% else %}📦{% endif %}
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{{ proj.name }}</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-3">{{ proj.description }}</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        {% for t in proj.tech %}
+                        <span class="tag-badge">{{ t }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="px-6 py-3 bg-gray-100 dark:bg-gray-600/30 text-sm text-gray-500 dark:text-gray-400">
+                    <i class="fab fa-github mr-1"></i>查看代码
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- 工具项目 -->
+        <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+            <i class="fas fa-wrench text-green-500 mr-2"></i>工具项目
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4 mb-16">
+            {% for proj in projects_data.tools %}
+            <a href="{{ proj.github }}" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">{{ proj.name }}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">{{ proj.description }}</p>
+                <div class="flex flex-wrap gap-1">
+                    {% for t in proj.tech %}
+                    <span class="tag-badge">{{ t }}</span>
+                    {% endfor %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- ML项目 -->
+        <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+            <i class="fas fa-brain text-accent-500 mr-2"></i>机器学习项目
+        </h2>
+        <div class="grid md:grid-cols-3 gap-4">
+            {% for proj in projects_data.ml_projects %}
+            <a href="{{ proj.github }}" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <div class="text-2xl mb-2">
+                    {% if '分类' in proj.name %}🏷️{% elif '回归' in proj.name %}📈{% elif '生成' in proj.name %}🎨{% else %}🧠{% endif %}
+                </div>
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">{{ proj.name }}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">{{ proj.description }}</p>
+                <div class="flex flex-wrap gap-1">
+                    {% for t in proj.tech %}
+                    <span class="tag-badge">{{ t }}</span>
+                    {% endfor %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

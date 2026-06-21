@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}成长轨迹 | {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            <i class="fas fa-chart-line text-green-500 mr-2"></i>成长轨迹
+        </h1>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-12">每一步都是成长的印记</p>
+
+        <!-- 过去里程碑 -->
+        <h2 class="text-xl font-bold mb-8 text-gray-900 dark:text-white flex items-center">
+            <span class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400 mr-3">
+                <i class="fas fa-check"></i>
+            </span>已完成
+        </h2>
+        <div class="relative pl-8 border-l-2 border-green-300 dark:border-green-700 ml-4 space-y-8 mb-16">
+            {% for item in timeline.past %}
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-green-400 flex items-center justify-center text-xs">
+                    {{ item.icon }}
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5">
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">{{ item.date }}</span>
+                    <h3 class="font-bold text-gray-900 dark:text-white mt-1">{{ item.title }}</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ item.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- 进行中 -->
+        <h2 class="text-xl font-bold mb-8 text-gray-900 dark:text-white flex items-center">
+            <span class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400 mr-3">
+                <i class="fas fa-spinner fa-pulse"></i>
+            </span>进行中
+        </h2>
+        <div class="relative pl-8 border-l-2 border-blue-300 dark:border-blue-700 ml-4 space-y-6 mb-16">
+            {% for item in timeline.current %}
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-blue-400 flex items-center justify-center text-xs">
+                    {{ item.icon }}
+                </div>
+                <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-5 border border-blue-200 dark:border-blue-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">{{ item.title }}</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ item.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- 未来规划 -->
+        <h2 class="text-xl font-bold mb-8 text-gray-900 dark:text-white flex items-center">
+            <span class="w-8 h-8 rounded-full bg-accent-100 dark:bg-accent-900 flex items-center justify-center text-accent-600 dark:text-accent-400 mr-3">
+                <i class="fas fa-rocket"></i>
+            </span>未来规划
+        </h2>
+        <div class="relative pl-8 border-l-2 border-dashed border-accent-300 dark:border-accent-700 ml-4 space-y-6">
+            {% for item in timeline.future %}
+            <div class="relative">
+                <div class="absolute -left-[2.35rem] top-1 w-6 h-6 rounded-full bg-white dark:bg-gray-800 border-2 border-accent-400 flex items-center justify-center text-xs">
+                    {{ item.icon }}
+                </div>
+                <div class="bg-accent-50 dark:bg-accent-900/10 rounded-xl p-5 border border-accent-200 dark:border-accent-800">
+                    <h3 class="font-bold text-gray-900 dark:text-white">{{ item.title }}</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ item.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- 理想 -->
+        <div class="mt-16 text-center bg-gradient-to-r from-primary-50 to-accent-50 dark:from-gray-700/50 dark:to-gray-700/50 rounded-2xl p-8 border border-gray-200 dark:border-gray-600">
+            <span class="text-5xl">💻</span>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-4 mb-2">我的理想</h3>
+            <p class="text-gray-600 dark:text-gray-300">拥有一台高性能电脑，既能畅快打游戏，也能运行大参数模型进行AI创作</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

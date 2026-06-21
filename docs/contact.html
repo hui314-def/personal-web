@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我 | 陈俊辉 | 个人成长站</title>
+    <meta name="description" content="AI专业学生 | Python开发者 | 持续成长中">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
+                        accent: { 50:'#fdf4ff',100:'#fae8ff',200:'#f5d0fe',300:'#f0abfc',400:'#e879f9',500:'#d946ef',600:'#c026d3',700:'#a21caf',800:'#86198f',900:'#701a75' },
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2 font-bold text-xl text-primary-600 dark:text-primary-400">
+                    <i class="fas fa-seedling"></i>
+                    <span>俊辉·成长</span>
+                </a>
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    
+                    
+                    <a href="/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-home mr-1"></i>首页
+                    </a>
+                    
+                    <a href="/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-user mr-1"></i>关于
+                    </a>
+                    
+                    <a href="/projects" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-code mr-1"></i>项目
+                    </a>
+                    
+                    <a href="/updates" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-newspaper mr-1"></i>动态
+                    </a>
+                    
+                    <a href="/growth" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-chart-line mr-1"></i>成长
+                    </a>
+                    
+                    <a href="/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300">
+                        <i class="fas fa-envelope mr-1"></i>联系
+                    </a>
+                    
+                    <a href="/admin" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="管理后台">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
+                <!-- 暗色模式切换 -->
+                <button id="darkToggle" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" title="切换暗色模式">
+                    <i class="fas fa-moon dark-icon"></i>
+                    <i class="fas fa-sun light-icon hidden"></i>
+                </button>
+                <!-- 移动端菜单按钮 -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div class="px-4 py-2 space-y-1">
+                
+                <a href="/" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-home mr-2 w-4"></i>首页
+                </a>
+                
+                <a href="/about" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-user mr-2 w-4"></i>关于
+                </a>
+                
+                <a href="/projects" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-code mr-2 w-4"></i>项目
+                </a>
+                
+                <a href="/updates" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-newspaper mr-2 w-4"></i>动态
+                </a>
+                
+                <a href="/growth" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-chart-line mr-2 w-4"></i>成长
+                </a>
+                
+                <a href="/contact" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300">
+                    <i class="fas fa-envelope mr-2 w-4"></i>联系
+                </a>
+                
+                <a href="/admin" class="block px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    <i class="fas fa-cog mr-2 w-4"></i>管理
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="flex-1">
+        
+<section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            <i class="fas fa-envelope text-primary-500 mr-2"></i>联系我
+        </h1>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-12">欢迎通过以下方式与我取得联系</p>
+
+        <div class="grid gap-4">
+            <!-- 邮箱 -->
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 flex items-center gap-5 hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 rounded-2xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-2xl text-red-500 flex-shrink-0">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm text-gray-500 dark:text-gray-400">QQ邮箱</h3>
+                    <a href="mailto:2083180893@qq.com" class="text-lg font-semibold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        2083180893@qq.com
+                    </a>
+                </div>
+                <button onclick="navigator.clipboard.writeText('2083180893@qq.com')" class="ml-auto text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-2" title="复制">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <!-- 电话 -->
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 flex items-center gap-5 hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 rounded-2xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-2xl text-green-500 flex-shrink-0">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm text-gray-500 dark:text-gray-400">电话</h3>
+                    <a href="tel:13688870835" class="text-lg font-semibold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        13688870835
+                    </a>
+                </div>
+                <button onclick="navigator.clipboard.writeText('13688870835')" class="ml-auto text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-2" title="复制">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <!-- 微信 -->
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 flex items-center gap-5 hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 rounded-2xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-2xl text-green-500 flex-shrink-0">
+                    <i class="fab fa-weixin"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm text-gray-500 dark:text-gray-400">微信</h3>
+                    <span class="text-lg font-semibold text-gray-900 dark:text-white">C13688870835</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400 ml-2">（昵称：辉）</span>
+                </div>
+                <button onclick="navigator.clipboard.writeText('C13688870835')" class="ml-auto text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-2" title="复制">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+
+            <!-- GitHub -->
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 flex items-center gap-5 hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 rounded-2xl bg-gray-800 dark:bg-gray-600 flex items-center justify-center text-2xl text-white flex-shrink-0">
+                    <i class="fab fa-github"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm text-gray-500 dark:text-gray-400">GitHub</h3>
+                    <a href="https://github.com/hui314-def" target="_blank" class="text-lg font-semibold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        hui314-def <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                    &copy; 2026 陈俊辉 · 用 ❤️ 和 AI 打造
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/hui314-def" target="_blank" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="GitHub">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="/contact" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="联系方式">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="/updates" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="最新动态">
+                        <i class="fas fa-rss text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

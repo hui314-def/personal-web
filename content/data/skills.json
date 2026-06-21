@@ -1,0 +1,21 @@
+{
+    "programming_languages": [
+        {"name": "Python", "level": 95, "description": "主力语言，编写过大量工具和项目"},
+        {"name": "JavaScript", "level": 75, "description": "前端开发与全栈项目"},
+        {"name": "C++", "level": 70, "description": "算法与数据结构基础"},
+        {"name": "Java", "level": 65, "description": "面向对象编程"}
+    ],
+    "ai_ml": [
+        {"name": "PyTorch", "level": 85, "description": "搭建图片分类、回归、生成模型"},
+        {"name": "机器学习/深度学习", "level": 80, "description": "深入学习理论与实践"},
+        {"name": "模型部署", "level": 75, "description": "本地部署语言模型、图片生成模型"},
+        {"name": "ComfyUI", "level": 70, "description": "AI工作流搭建"},
+        {"name": "Ollama", "level": 80, "description": "本地模型管理与调用"}
+    ],
+    "tools": [
+        {"name": "AI Agent开发", "level": 85, "description": "多智能体协同、系统提示词编写"},
+        {"name": "Git/GitHub", "level": 80, "description": "版本控制与协作"},
+        {"name": "网络爬虫", "level": 85, "description": "数据采集与处理"},
+        {"name": "文件处理", "level": 90, "description": "图片、音视频、系统文件操作"}
+    ]
+}

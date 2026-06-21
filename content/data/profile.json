@@ -1,0 +1,16 @@
+{
+    "name": "陈俊辉",
+    "name_en": "Chen Junhui",
+    "gender": "男",
+    "school": "广州大学",
+    "major": "人工智能",
+    "grade": "2024级",
+    "role": "AI工具辅助开发程序员",
+    "bio": "广州大学人工智能专业在读学生，热衷于利用AI工具进行高效开发。熟悉多种编程语言，擅长Python，在机器学习、深度学习领域有深入学习和实践经验。致力于成为一名优秀的AI工程师。",
+    "avatar": "/static/images/avatar.jpg",
+    "github": "https://github.com/hui314-def",
+    "email": "2083180893@qq.com",
+    "phone": "13688870835",
+    "wechat": "C13688870835",
+    "wechat_nickname": "辉"
+}

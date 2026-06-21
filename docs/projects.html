@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目展示 | 陈俊辉 | 个人成长站</title>
+    <meta name="description" content="AI专业学生 | Python开发者 | 持续成长中">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
+                        accent: { 50:'#fdf4ff',100:'#fae8ff',200:'#f5d0fe',300:'#f0abfc',400:'#e879f9',500:'#d946ef',600:'#c026d3',700:'#a21caf',800:'#86198f',900:'#701a75' },
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2 font-bold text-xl text-primary-600 dark:text-primary-400">
+                    <i class="fas fa-seedling"></i>
+                    <span>俊辉·成长</span>
+                </a>
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    
+                    
+                    <a href="/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-home mr-1"></i>首页
+                    </a>
+                    
+                    <a href="/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-user mr-1"></i>关于
+                    </a>
+                    
+                    <a href="/projects" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300">
+                        <i class="fas fa-code mr-1"></i>项目
+                    </a>
+                    
+                    <a href="/updates" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-newspaper mr-1"></i>动态
+                    </a>
+                    
+                    <a href="/growth" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-chart-line mr-1"></i>成长
+                    </a>
+                    
+                    <a href="/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                        text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                        <i class="fas fa-envelope mr-1"></i>联系
+                    </a>
+                    
+                    <a href="/admin" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="管理后台">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </div>
+                <!-- 暗色模式切换 -->
+                <button id="darkToggle" class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" title="切换暗色模式">
+                    <i class="fas fa-moon dark-icon"></i>
+                    <i class="fas fa-sun light-icon hidden"></i>
+                </button>
+                <!-- 移动端菜单按钮 -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div class="px-4 py-2 space-y-1">
+                
+                <a href="/" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-home mr-2 w-4"></i>首页
+                </a>
+                
+                <a href="/about" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-user mr-2 w-4"></i>关于
+                </a>
+                
+                <a href="/projects" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300">
+                    <i class="fas fa-code mr-2 w-4"></i>项目
+                </a>
+                
+                <a href="/updates" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-newspaper mr-2 w-4"></i>动态
+                </a>
+                
+                <a href="/growth" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-chart-line mr-2 w-4"></i>成长
+                </a>
+                
+                <a href="/contact" class="block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                    text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+                    <i class="fas fa-envelope mr-2 w-4"></i>联系
+                </a>
+                
+                <a href="/admin" class="block px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    <i class="fas fa-cog mr-2 w-4"></i>管理
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="flex-1">
+        
+<section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            <i class="fas fa-code text-primary-500 mr-2"></i>项目展示
+        </h1>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-12">我开发的一些有趣项目</p>
+
+        <!-- 精选项目 -->
+        <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+            <i class="fas fa-star text-yellow-500 mr-2"></i>精选项目
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+            
+            <a href="https://github.com/hui314-def/PyQt5DeskPet" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-600">
+                <div class="p-6">
+                    <div class="text-3xl mb-3">
+                        🐱
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">桌面宠物</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-3">一款桌面宠物应用，提供陪伴和娱乐功能，运行在桌面端的交互式宠物程序。</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        
+                        <span class="tag-badge">Python</span>
+                        
+                        <span class="tag-badge">GUI</span>
+                        
+                        <span class="tag-badge">动画</span>
+                        
+                    </div>
+                </div>
+                <div class="px-6 py-3 bg-gray-100 dark:bg-gray-600/30 text-sm text-gray-500 dark:text-gray-400">
+                    <i class="fab fa-github mr-1"></i>查看代码
+                </div>
+            </a>
+            
+            <a href="https://github.com/hui314-def/My-Virtual-AI-Chat-Page" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-600">
+                <div class="p-6">
+                    <div class="text-3xl mb-3">
+                        💬
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">AI聊天网页</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-3">基于AI模型的在线聊天网页应用，支持多轮对话和上下文理解。</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        
+                        <span class="tag-badge">Python</span>
+                        
+                        <span class="tag-badge">JavaScript</span>
+                        
+                        <span class="tag-badge">AI API</span>
+                        
+                        <span class="tag-badge">Web</span>
+                        
+                    </div>
+                </div>
+                <div class="px-6 py-3 bg-gray-100 dark:bg-gray-600/30 text-sm text-gray-500 dark:text-gray-400">
+                    <i class="fab fa-github mr-1"></i>查看代码
+                </div>
+            </a>
+            
+            <a href="https://github.com/hui314-def/computercontroller" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-600">
+                <div class="p-6">
+                    <div class="text-3xl mb-3">
+                        🖱️
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">远程键鼠控制器</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-3">通过网络远程控制电脑键盘和鼠标的工具，实现跨设备操作。</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        
+                        <span class="tag-badge">Python</span>
+                        
+                        <span class="tag-badge">网络编程</span>
+                        
+                        <span class="tag-badge">Socket</span>
+                        
+                    </div>
+                </div>
+                <div class="px-6 py-3 bg-gray-100 dark:bg-gray-600/30 text-sm text-gray-500 dark:text-gray-400">
+                    <i class="fab fa-github mr-1"></i>查看代码
+                </div>
+            </a>
+            
+        </div>
+
+        <!-- 工具项目 -->
+        <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+            <i class="fas fa-wrench text-green-500 mr-2"></i>工具项目
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4 mb-16">
+            
+            <a href="https://github.com/hui314-def/useful-tools" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">文件操作工具集</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">系统文件批量操作工具，包括重命名、分类、搜索等功能。</p>
+                <div class="flex flex-wrap gap-1">
+                    
+                    <span class="tag-badge">Python</span>
+                    
+                    <span class="tag-badge">OS</span>
+                    
+                </div>
+            </a>
+            
+            <a href="https://github.com/hui314-def/useful-tools" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">图片/音视频处理工具</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">批量处理图片和音视频文件，包括格式转换、压缩、编辑等。</p>
+                <div class="flex flex-wrap gap-1">
+                    
+                    <span class="tag-badge">Python</span>
+                    
+                    <span class="tag-badge">PIL</span>
+                    
+                    <span class="tag-badge">FFmpeg</span>
+                    
+                </div>
+            </a>
+            
+            <a href="https://github.com/hui314-def/useful-tools" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">网络爬虫工具集</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">多类型网站数据采集爬虫，支持动态页面和反爬处理。</p>
+                <div class="flex flex-wrap gap-1">
+                    
+                    <span class="tag-badge">Python</span>
+                    
+                    <span class="tag-badge">Scrapy</span>
+                    
+                    <span class="tag-badge">Selenium</span>
+                    
+                </div>
+            </a>
+            
+            <a href="https://github.com/hui314-def/useful-tools" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">脚本处理工具</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">自动化脚本集合，用于日常重复性任务的自动化处理。</p>
+                <div class="flex flex-wrap gap-1">
+                    
+                    <span class="tag-badge">Python</span>
+                    
+                    <span class="tag-badge">Shell</span>
+                    
+                </div>
+            </a>
+            
+        </div>
+
+        <!-- ML项目 -->
+        <h2 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+            <i class="fas fa-brain text-accent-500 mr-2"></i>机器学习项目
+        </h2>
+        <div class="grid md:grid-cols-3 gap-4">
+            
+            <a href="https://github.com/hui314-def" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <div class="text-2xl mb-2">
+                    🏷️
+                </div>
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">图片分类模型</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">使用PyTorch搭建的深度学习图片分类模型。</p>
+                <div class="flex flex-wrap gap-1">
+                    
+                    <span class="tag-badge">PyTorch</span>
+                    
+                    <span class="tag-badge">CNN</span>
+                    
+                    <span class="tag-badge">Python</span>
+                    
+                </div>
+            </a>
+            
+            <a href="https://github.com/hui314-def" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <div class="text-2xl mb-2">
+                    📈
+                </div>
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">回归预测模型</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">基于深度学习的回归预测模型，用于数值预测任务。</p>
+                <div class="flex flex-wrap gap-1">
+                    
+                    <span class="tag-badge">PyTorch</span>
+                    
+                    <span class="tag-badge">Regression</span>
+                    
+                    <span class="tag-badge">Python</span>
+                    
+                </div>
+            </a>
+            
+            <a href="https://github.com/hui314-def" target="_blank" class="project-card block bg-gray-50 dark:bg-gray-700/50 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
+                <div class="text-2xl mb-2">
+                    🎨
+                </div>
+                <h3 class="font-bold text-gray-900 dark:text-white mb-1">图片生成模型</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">基于生成对抗网络和扩散模型的图片生成实验。</p>
+                <div class="flex flex-wrap gap-1">
+                    
+                    <span class="tag-badge">PyTorch</span>
+                    
+                    <span class="tag-badge">GAN</span>
+                    
+                    <span class="tag-badge">Diffusion</span>
+                    
+                </div>
+            </a>
+            
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                    &copy; 2026 陈俊辉 · 用 ❤️ 和 AI 打造
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://github.com/hui314-def" target="_blank" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="GitHub">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="/contact" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="联系方式">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="/updates" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" title="最新动态">
+                        <i class="fas fa-rss text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}管理后台 | {{ site_name }}{% endblock %}
+
+{% block content %}
+<section class="py-16 bg-gray-50 dark:bg-gray-900 min-h-[70vh]">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-10 h-10 rounded-xl bg-accent-100 dark:bg-accent-900 flex items-center justify-center text-accent-600 dark:text-accent-400">
+                    <i class="fas fa-pen-to-square"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">发布新文章</h1>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">使用 Markdown 格式编写内容</p>
+                </div>
+            </div>
+
+            <form action="/admin/publish" method="POST" class="space-y-6">
+                <!-- 标题 -->
+                <div>
+                    <label for="title" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+                        <i class="fas fa-heading mr-1"></i>文章标题
+                    </label>
+                    <input type="text" id="title" name="title" required
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
+                        placeholder="输入文章标题...">
+                </div>
+
+                <!-- 标签 -->
+                <div>
+                    <label for="tags" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+                        <i class="fas fa-tags mr-1"></i>标签
+                        <span class="text-gray-400 font-normal">（用逗号分隔，如：Python, AI, 项目）</span>
+                    </label>
+                    <input type="text" id="tags" name="tags"
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
+                        placeholder="Python, AI, 成长">
+                    {% if all_tags %}
+                    <div class="flex flex-wrap gap-1.5 mt-2">
+                        <span class="text-xs text-gray-400">已有标签：</span>
+                        {% for t in all_tags %}
+                        <button type="button" onclick="addTag('{{ t }}')" class="tag-badge cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-800 transition-colors">{{ t }}</button>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- 内容 -->
+                <div>
+                    <label for="editorContent" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+                        <i class="fas fa-file-lines mr-1"></i>文章内容（Markdown）
+                    </label>
+                    <textarea id="editorContent" name="content" required
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all font-mono text-sm"
+                        rows="16"
+                        placeholder="## 标题&#10;&#10;在这里写 Markdown 内容...&#10;&#10;```python&#10;print('Hello World')&#10;```"></textarea>
+                </div>
+
+                <!-- 提交按钮 -->
+                <div class="flex items-center gap-3 pt-2">
+                    <button type="submit" class="flex-1 px-6 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-xl font-semibold hover:from-primary-700 hover:to-accent-700 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i>发布文章
+                    </button>
+                    <a href="{{ base_path }}/" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                        取消
+                    </a>
+                </div>
+            </form>
+
+            <!-- Markdown 提示 -->
+            <div class="mt-8 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl text-xs text-gray-500 dark:text-gray-400">
+                <p class="font-semibold mb-2"><i class="fas fa-info-circle mr-1"></i>Markdown 快速参考：</p>
+                <div class="grid grid-cols-2 gap-2">
+                    <code># 标题1</code> <code>## 标题2</code>
+                    <code>**粗体**</code> <code>*斜体*</code>
+                    <code>[链接](url)</code> <code>![图片](url)</code>
+                    <code>```代码块```</code> <code>`行内代码`</code>
+                    <code>- 列表项</code> <code>> 引用</code>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function addTag(tag) {
+    const input = document.getElementById('tags');
+    const current = input.value.split(',').map(s => s.trim()).filter(Boolean);
+    if (!current.includes(tag)) {
+        current.push(tag);
+        input.value = current.join(', ');
+    }
+}
+</script>
+{% endblock %}
